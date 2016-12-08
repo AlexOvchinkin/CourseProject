@@ -36,7 +36,9 @@ class PhoneCatalogueBlockController {
         });
 
         this._viewer = new ItemViewer({
-            element: this._el.querySelector('[data-component="item-viewer"]')
+            element: this._el.querySelector('[data-component="item-viewer"]'),
+            back: 'Назад',
+            add: 'Добавить в корзину'
         });
 
         this._filter = new Filter(this._el.querySelector('[data-component="filter"]'));
