@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My course project</title>
+    <link rel="stylesheet" href="style.css">
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.min.js"></script>
+    <script src="scripts/component.js" defer></script>
+    <script src="scripts/filter.js" defer></script>
+    <script src="scripts/item-catalogue.js" defer></script>
+    <script src="scripts/item-viewer.js" defer></script>
+    <script src="scripts/phone-catalogue-block-controller.js" defer></script>
+    <script src="scripts/index.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1>Shop (test Handlebars)</h1>
+    </header>
+    <main>
+        <ahead>
+            <div data-component="filter">
+                <label>
+                    <input type="checkbox" id="phone" checked> Phones
+                </label>
+
+                <label>
+                    <input type="checkbox" id="camera" checked> Cameras
+                </label>
+
+                <label>
+                    <input type="checkbox" id="tablet" checked> Tablets
+                </label>
+            </div>
+        </ahead>
+        <section class="goods-panel">
+            <section class="goods-catalogue js-hidden" data-component="item-catalogue"></section>
+            <section class="goods-about js-hidden" data-component="item-viewer"></section>
+        </section>
+    </main>
+
+    <script type="text/x-handlebars-template" id="catalogue-template">
+        {{#each phones}}
+            <div class="goods" data-itemID="{{name}}">
+                <div class="goods__image-container"><img src={{imgAddress}}></div>
+                <div class="goods__description">
+                    <h3>{{name}}</h3>
+                    <p>{{description}}</p>
+                </div>
+            </div>
+        {{/each}}
+    </script>
+
+    <script type="text/x-handlebars-template" id="viewer-template">
+        <div class="goods-about__goods-images">
+            {{#each images}}
+                <img src={{path}}>
+            {{/each}}
+        </div>
+        <div class="goods-about__options">
+            <table>
+                <tr>
+                    <td>-</td>
+                    <td>display</td>
+                    <td>  .........  </td>
+                    <td>{{display}}</td>
+                </tr>
+                <tr>
+                    <td>-</td>
+                    <td>battery</td>
+                    <td>  .........  </td>
+                    <td>{{battery}}</td>
+                </tr>
+                <tr>
+                    <td>-</td>
+                    <td>Bluetooth</td>
+                    <td>  .........  </td>
+                    <td>{{bluetooth}}</td>
+                </tr>
+            </table>
+            <p>On the seventh day the designers rested. In came the engineers. And the master of controversy struck again.</p>
+            <p>Apple is proud of the bold move of removing the audio jack. But in pretty much every other aspect they've seemingly taken the conservative route. On the outside, the new iPhone looks basically the same as the iPhone 6/6s.</p>
+            <button id="btn-back" data-element="btnBack">Back</button>
+            <button id="btn-add">Add to Basket</button>
+        </div>
+    </script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

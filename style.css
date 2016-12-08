@@ -1,0 +1,136 @@
+body {
+    padding: 0;
+}
+
+header {
+    text-align: center;
+    margin: 0;
+}
+
+main {
+    width: 100%;
+    display: flex;
+    margin: 0;
+    justify-content: space-around;
+}
+
+ahead {
+    flex-basis: 18%;
+    margin-right: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+ahead div {
+    background-color: #8791ff;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+
+ahead label {
+    display: block;
+    margin: 20px;
+    font-size: 26px;
+    font-style: italic;
+    color: #525252;
+}
+
+.goods-panel {
+    flex-basis: 78%;
+    display: flex;
+    flex-direction: column;
+}
+
+.goods-catalogue {
+    display: flex;
+    flex-direction: column;
+}
+
+.goods {
+    display: flex;
+    border: 1px solid darkgray;
+    border-radius: 10px;
+    cursor: pointer;
+    margin: 10px 0;
+}
+
+.goods:hover {
+    box-shadow: 0 0 10px 0 darkgray;
+}
+
+.goods__image-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0px 20px;
+}
+
+.goods__description {
+    margin: 0 10px;
+    font-size: 20px;
+    color: darkslategrey;
+}
+
+.goods-about {
+    display: flex;
+}
+
+.goods-about__goods-images {
+    min-width: 620px;
+}
+
+.goods-about__goods-images img {
+    width: 150px;
+    height: 300px;
+    border: 1px solid gainsboro;
+    padding: 10px 75px;
+}
+
+.goods-about__options {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: darkslategrey;
+    font-size: 24px;
+}
+
+.goods-about__options table td:not(:nth-child(4)){
+    vertical-align: top;
+}
+
+button {
+    width: 120px;
+    height: 30px;
+    margin-top: 10px;
+    border-radius: 8px;
+    border: 1px solid darkgray;
+    background-color: white;
+    cursor: pointer;
+}
+
+.js-hidden {
+    display: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
