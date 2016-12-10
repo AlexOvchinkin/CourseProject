@@ -5,29 +5,31 @@ class ItemCatalogue extends Component {
 
         super(options.element);
 
-        this._items = this._getPhones(options.phonesURL);
+        this._items = [];
 
         this._source = document.getElementById('catalogue-template').innerHTML;
         this._templateFunction = Handlebars.compile(this._source);
-
-        this._render({
-            phones: this._items
-        });
+        this._showPhones(options.phonesURL);
 
         this._el.addEventListener('click', this.onItemClick.bind(this));
     }
 
-    _getPhones(URL) {
+    _showPhones(URL) {
+
         let xnr = new XMLHttpRequest();
-        xnr.open('GET', URL, false);
+        xnr.open('GET', URL);
         xnr.send();
 
-        if (xnr.status != 200) {
-            alert('Error:' + xnr.responseText);
-            return [];
-        } else {
-            return JSON.parse(xnr.responseText);
-        }
+        xnr.onload = this.onLoadPhones.bind(this);
+    }
+
+    onLoadPhones(e) {
+
+        this._items = JSON.parse(e.target.responseText);
+
+        this._render({
+            phones: this._items
+        });
     }
 
     onItemClick(e) {
@@ -44,21 +46,19 @@ class ItemCatalogue extends Component {
         }
     }
 
-    getItems() {
-        return this._items;
-    }
-
-    getFilteredItems(items, filter) {
+    showFilteredPhones(filter) {
 
         let result = [];
 
-        items.forEach(function (item) {
+        this._items.forEach(function (item) {
             if (filter.indexOf(item.type) != -1) {
                 result.push(item);
             }
         });
 
-        return result;
+        this._render({
+            phones: result
+        });
     }
 
     _render(phones) {

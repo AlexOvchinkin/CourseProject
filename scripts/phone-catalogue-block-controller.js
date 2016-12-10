@@ -38,7 +38,7 @@ class PhoneCatalogueBlockController {
         this._viewer = new ItemViewer({
             element: this._el.querySelector('[data-component="item-viewer"]'),
             back: 'Назад',
-            add: 'Добавить в корзину'
+            add: 'В корзину'
         });
 
         this._filter = new Filter(this._el.querySelector('[data-component="filter"]'));
@@ -58,11 +58,8 @@ class PhoneCatalogueBlockController {
     }
 
     onFilterChanged(e) {
-        let items = this._catalogue.getItems();
         let filter = e.detail;
-        this._catalogue._render({
-            phones: this._catalogue.getFilteredItems(items, filter)
-        });
+        this._catalogue.showFilteredPhones(filter);
     }
 
     onItemSelected(e) {
