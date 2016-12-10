@@ -32,7 +32,7 @@ class PhoneCatalogueBlockController {
 
         this._catalogue = new ItemCatalogue({
             element: this._el.querySelector('[data-component="item-catalogue"]'),
-            phones: options.phones
+            phonesURL: 'phones.json'
         });
 
         this._viewer = new ItemViewer({
@@ -51,7 +51,7 @@ class PhoneCatalogueBlockController {
         this._catalogue.show();
     }
 
-    onButtonBack(e) {
+    onButtonBack() {
         this._catalogue.show();
         this._viewer.hide();
         this._filter.show();

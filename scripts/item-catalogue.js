@@ -5,7 +5,7 @@ class ItemCatalogue extends Component {
 
         super(options.element);
 
-        this._items = options.phones;
+        this._items = this._getPhones(options.phonesURL);
 
         this._source = document.getElementById('catalogue-template').innerHTML;
         this._templateFunction = Handlebars.compile(this._source);
@@ -15,6 +15,19 @@ class ItemCatalogue extends Component {
         });
 
         this._el.addEventListener('click', this.onItemClick.bind(this));
+    }
+
+    _getPhones(URL) {
+        let xnr = new XMLHttpRequest();
+        xnr.open('GET', URL, false);
+        xnr.send();
+
+        if (xnr.status != 200) {
+            alert('Error:' + xnr.responseText);
+            return [];
+        } else {
+            return JSON.parse(xnr.responseText);
+        }
     }
 
     onItemClick(e) {
