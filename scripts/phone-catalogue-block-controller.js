@@ -1,4 +1,3 @@
-
 class PhoneCatalogueBlockController {
 
     constructor(options) {
@@ -40,9 +39,11 @@ class PhoneCatalogueBlockController {
     onItemSelected(e) {
         this._catalogue.hide();
 
-        AJAXService.loadJSON(e.detail + '.json', this._viewer._render.bind(this._viewer), function () {
-            alert("ERROR !!!");
-        });
+        AJAXService.loadJSON(e.detail + '.json')
+            .then(this._viewer._render.bind(this._viewer))
+            .catch(function () {
+                alert("ERROR !!!");
+            });
 
         this._viewer.show();
         this._filter.hide();

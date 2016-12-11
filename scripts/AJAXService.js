@@ -3,20 +3,26 @@
 
 const AJAXService = {
 
-    loadJSON(url, onsuccess, onerror) {
+    loadJSON(url) {
 
-        let xhr = new XMLHttpRequest();
-        xhr.open('GET', url);
-        xhr.send();
+        let promise = new Promise(function (resolve, rejected) {
 
-        xhr.onload = function () {
+            let xhr = new XMLHttpRequest();
+            xhr.open('GET', url);
+            xhr.send();
 
-            if(event.target.status == 200) {
-                onsuccess(JSON.parse(event.target.responseText));
-            } else {
-                onerror();
+            xhr.onload = function () {
+
+                if (event.target.status == 200) {
+                    resolve(JSON.parse(event.target.responseText));
+                } else {
+                    rejected();
+                }
             }
-        }
+
+        });
+
+        return promise;
     }
 
 };

@@ -1,4 +1,3 @@
-
 class ItemCatalogue extends Component {
 
     constructor(options) {
@@ -16,9 +15,11 @@ class ItemCatalogue extends Component {
 
     _showPhones(URL) {
 
-        AJAXService.loadJSON(URL, this.onLoadPhones.bind(this), function () {
-            alert('ERROR !!!');
-        })
+        AJAXService.loadJSON(URL)
+            .then(this.onLoadPhones.bind(this))
+            .catch(function () {
+                alert('ERROR !!!')
+            });
     }
 
     onLoadPhones(items) {
