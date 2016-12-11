@@ -16,16 +16,14 @@ class ItemCatalogue extends Component {
 
     _showPhones(URL) {
 
-        let xnr = new XMLHttpRequest();
-        xnr.open('GET', URL);
-        xnr.send();
-
-        xnr.onload = this.onLoadPhones.bind(this);
+        AJAXService.loadJSON(URL, this.onLoadPhones.bind(this), function () {
+            alert('ERROR !!!');
+        })
     }
 
-    onLoadPhones(e) {
+    onLoadPhones(items) {
 
-        this._items = JSON.parse(e.target.responseText);
+        this._items = items;
 
         this._render({
             phones: this._items

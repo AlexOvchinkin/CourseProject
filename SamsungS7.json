@@ -1,0 +1,11 @@
+{
+  "display": "LCD touchscreen, 16M colors",
+  "battery": "Non-removable Li-Ion battery",
+  "bluetooth": "Yes",
+  "images": [
+    {"path": "sources/SamsungS7_main.jpg"},
+    {"path": "sources/SamsungS7_front.jpg"},
+    {"path": "sources/SamsungS7_back.jpg"},
+    {"path": "sources/SamsungS7_turn.jpg"}
+  ]
+}

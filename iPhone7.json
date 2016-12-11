@@ -1,0 +1,11 @@
+{
+  "display": "LED-backlit IPS LCD, capacitive touchscreen, 16M colors",
+  "battery": "Non-removable Li-Ion 1960 mAh battery (7.45 Wh)",
+  "bluetooth": "Yes",
+  "images": [
+    {"path": "sources/iPhone7_main.jpg"},
+    {"path": "sources/iPhone7_front.jpg"},
+    {"path": "sources/iPhone7_back.jpg"},
+    {"path": "sources/iPhone7_turn.jpg"}
+  ]
+}
